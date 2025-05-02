@@ -19,8 +19,8 @@ export type ThemeTogglerProps = Omit<ButtonProps, 'onClick' | 'children' | 'asCh
 export function ThemeToggle({ className, variant = 'outline', size = 'icon', ...props }: ThemeTogglerProps) {
   return (
     <Button variant={variant} size={size} onClick={toggleTheme} className={cn('rounded-full', className)} {...props}>
-      <SunIcon className="w-4 h-4 dark:hidden" />
-      <MoonIcon className="w-4 h-4 hidden dark:block" />
+      <SunIcon className="w-4 h-4 hidden dark:block" />
+      <MoonIcon className="w-4 h-4 dark:hidden" />
     </Button>
   )
 }
