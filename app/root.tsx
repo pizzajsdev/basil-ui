@@ -1,7 +1,7 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import type { Route } from './+types/root'
 
-import themeDetectJs from './theme-detect.js?raw'
+import themeDetectJs from '@/registry/basil-ui/lib/theme-detect.js?raw'
 
 import './app.css'
 import { PageLayout } from './components/page-layout'

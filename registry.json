@@ -45,6 +45,10 @@
         {
           "path": "registry/basil-ui/ui/theme-toggle.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/basil-ui/lib/theme-detect.js",
+          "type": "registry:lib"
         }
       ]
     }
