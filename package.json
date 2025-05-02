@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build && pnpm registry:build",
+    "build": "pnpm registry:build && react-router build",
     "dev": "react-router dev --host --open --port 5174",
     "format": "pnpm format:prettier && pnpm format:pkg",
     "format:pkg": "sort-package-json package.json",
@@ -12,7 +12,7 @@
     "lint:prettier": "prettier --check README.md ./app",
     "prepare": "pnpm format:pkg",
     "registry:build": "shadcn registry:build",
-    "start": "pnpm dlx http-server ./build/client -o",
+    "start": "pnpm build && pnpm dlx http-server ./build/client -o",
     "start:ssr": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "test": "echo 'no tests yet'"

@@ -10,8 +10,7 @@ on:
       - main
 
 env:
-  APP_CI: true
-  APP_ENV: development
+  APP_BASE_PATH: '/basil-ui/'
   NODE_VERSION: 22.15.0
   PNPM_VERSION: 10.10.0
 
