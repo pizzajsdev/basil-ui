@@ -22,8 +22,7 @@ export default function Home() {
       <header className="flex flex-col gap-1">
         <h2 className="text-3xl font-bold tracking-tight">Component Registry</h2>
         <p className="text-muted-foreground">
-          This is the Basil UI component registry. You can edit a component directly using{' '}
-          <span className="italic">v0.dev</span> or install it locally using the shadcn CLI.
+          This is the Basil UI component registry. You can install components locally using the shadcn CLI.
         </p>
       </header>
       <div className="flex flex-col gap-4">
