@@ -17,10 +17,20 @@ function toggleTheme() {
 export type ThemeTogglerProps = Omit<ButtonProps, 'onClick' | 'children' | 'asChild'>
 
 export function ThemeToggle({ className, variant = 'outline', size = 'icon', ...props }: ThemeTogglerProps) {
+  const ariaLabel = props['aria-label'] ?? 'Toggle theme'
+
   return (
-    <Button variant={variant} size={size} onClick={toggleTheme} className={cn('rounded-full', className)} {...props}>
+    <Button
+      variant={variant}
+      size={size}
+      onClick={toggleTheme}
+      className={cn('rounded-full', className)}
+      {...props}
+      aria-label={ariaLabel}
+    >
       <SunIcon className="w-4 h-4 hidden dark:block" />
       <MoonIcon className="w-4 h-4 dark:hidden" />
+      <span className="sr-only">{ariaLabel}</span>
     </Button>
   )
 }
