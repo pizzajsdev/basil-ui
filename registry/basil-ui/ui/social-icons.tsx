@@ -1,4 +1,4 @@
-// Taken from Simple Icons, optimized with https://jakearchibald.github.io/svgomg
+// Most of them are from Simple Icons, optimized with https://jakearchibald.github.io/svgomg
 
 export function BuyMeACoffeeIcon(props: React.ComponentProps<'svg'>) {
   return (

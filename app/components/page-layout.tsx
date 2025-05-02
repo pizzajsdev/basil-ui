@@ -14,10 +14,10 @@ export function PageLayout({ children }: { children: React.ReactNode }) {
           <GithubIcon className="w-8 h-8" />
           <span className="sr-only">View on GitHub</span>
         </a>
-        <div className="w-[500px] max-w-[100vw] p-4 flex flex-col items-center justify-center">
+        <h1 className="w-[500px] max-w-[100vw] p-4 flex flex-col items-center justify-center">
           <img src={'/basil-ui/logo.png'} alt="Basil UI" className="block w-full max-w-[100px] h-auto" />
           <span className="text-4xl font-bold">Basil UI</span>
-        </div>
+        </h1>
       </header>
       <div className="flex-1">{children}</div>
       <Footer />
