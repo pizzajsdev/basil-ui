@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import {
   BlueskyIcon,
   BuyMeACoffeeIcon,
@@ -18,7 +19,13 @@ import {
 
 export function SocialIcons() {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div
+      className={cn(
+        'flex items-center justify-center flex-wrap transition-all',
+        '[&>*]:size-8 [&>*]:px-1 [&>*]:transition-all [&>*]:duration-250',
+        '[&>*:hover]:size-14 [&>*:hover+*]:size-10 [&>*:has(+:hover)]:size-10',
+      )}
+    >
       <BlueskyIcon />
       <MastodonIcon />
       <ThreadsIcon />

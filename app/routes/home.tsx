@@ -5,13 +5,13 @@ import type { Route } from './+types/home'
 export function meta({}: Route.MetaArgs) {
   return [
     {
-      title: 'Basil UI - A performant and accessible UI library for React and Tailwind CSS.',
+      title: 'Basil UI - A modern UI library for React focused on accessibility and performance.',
     },
     {
       name: 'description',
       content:
-        'A modern, a performant and accessible UI library for React and Tailwind CSS, ' +
-        'compatible with shadcn/ui registry.',
+        'A modern UI library for React focused on accessibility and performance, compatible with shadcn/ui registry,' +
+        ' and built on top of modern primitives such as Ark UI, Base UI, and TanStack Virtual.',
     },
   ]
 }

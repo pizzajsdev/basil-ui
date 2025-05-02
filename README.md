@@ -5,18 +5,9 @@
 <h1 align="center">Basil UI</h1>
 
 <p align="center">
-A performant and accessible UI library for React and Tailwind CSS.
+A modern UI library for React focused on accessibility and performance, compatible with shadcn/ui registry.
 </p>
 
-## Installation
+## Documentation
 
-To install Basil UI components individually, run the following command:
-
-```bash
-pnpm dlx shadcn@latest add http://pizzajs.dev/basil-ui/r/hello-world.json
-```
-
-> Change `hello-world.json` to the component you want to install.
-
-All components can be found at
-[http://pizzajs.dev/basil-ui/r/registry.json](http://pizzajs.dev/basil-ui/r/registry.json)
+Go to [https://pizzajs.dev/basil-ui/](https://pizzajs.dev/basil-ui/) to read more.
