@@ -1,4 +1,5 @@
 import { Button } from '@/registry/basil-ui/ui/button'
+import { ThemeToggle } from '@/registry/basil-ui/ui/theme-toggle'
 import { ComponentCard } from './component-card'
 import { SocialIcons } from './examples/social-icons'
 // This page displays items from the custom registry.
@@ -6,9 +7,12 @@ import { SocialIcons } from './examples/social-icons'
 
 export function ComponentsList() {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:[&>div]:last:odd:col-span-2">
       <ComponentCard name="button" description="Button">
         <Button>Click me</Button>
+      </ComponentCard>
+      <ComponentCard name="theme-toggle" description="Theme Toggle">
+        <ThemeToggle />
       </ComponentCard>
       <ComponentCard name="social-icons" description="Social Icons">
         <SocialIcons />

@@ -5,23 +5,8 @@
   "items": [
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "hello-world",
-      "type": "registry:block",
-      "title": "Hello World",
-      "description": "A simple hello world block component",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/basil-ui/blocks/hello-world.tsx",
-          "type": "registry:block"
-        }
-      ]
-    },
-    {
-      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "button",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Button",
       "description": "A simple button component",
       "dependencies": [],
@@ -29,14 +14,14 @@
       "files": [
         {
           "path": "registry/basil-ui/ui/button.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "social-icons",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Social Icons",
       "description": "A list of most popular social icons as SVG components",
       "dependencies": [],
@@ -44,7 +29,22 @@
       "files": [
         {
           "path": "registry/basil-ui/ui/social-icons.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "title": "Theme Toggle",
+      "description": "A theme toggle button",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/theme-toggle.tsx",
+          "type": "registry:ui"
         }
       ]
     }

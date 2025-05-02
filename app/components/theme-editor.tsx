@@ -36,7 +36,7 @@ export function ThemeEditor() {
       <Button
         size="icon"
         variant="outline"
-        className="size-8 absolute top-2 right-2 z-10"
+        className="size-8 absolute top-2 right-2 z-10 rounded-full"
         onClick={() => setOpen(false)}
       >
         <XIcon className="w-4 h-4" />
