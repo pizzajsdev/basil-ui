@@ -4,6 +4,7 @@ import type { Route } from './+types/root'
 import { Footer } from './components/footer'
 import themeDetectJs from './theme-detect.js?raw'
 
+import { GithubIcon } from '@/registry/basil-ui/ui/social-icons'
 import './app.css'
 
 export const links: Route.LinksFunction = () => [
@@ -47,6 +48,15 @@ export default function App() {
   return (
     <main className="max-w-3xl mx-auto flex flex-col min-h-svh p-4 gap-8 justify-between">
       <header className="flex flex-col items-center gap-9">
+        <a
+          href="https://github.com/pizzajsdev/basil-ui"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-current absolute top-4 right-4"
+        >
+          <GithubIcon className="w-8 h-8" />
+          <span className="sr-only">View on GitHub</span>
+        </a>
         <div className="w-[500px] max-w-[100vw] p-4 flex flex-col items-center justify-center">
           <img src={'/logo.png'} alt="Basil UI" className="block w-full max-w-[100px] h-auto" />
           <span className="text-4xl font-bold">Basil UI</span>

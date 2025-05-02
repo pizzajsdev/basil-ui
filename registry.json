@@ -32,6 +32,21 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "social-icons",
+      "type": "registry:component",
+      "title": "Social Icons",
+      "description": "A list of most popular social icons as SVG components",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/social-icons.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
