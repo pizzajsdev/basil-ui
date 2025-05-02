@@ -7,5 +7,5 @@ export default {
   future: {
     unstable_optimizeDeps: true,
   },
-  basename: import.meta.env.BASE_URL,
+  basename: import.meta.env.VITE_APP_BASE_PATH,
 } satisfies Config

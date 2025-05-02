@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm registry:build && react-router build",
-    "dev": "react-router dev --host --open --port 5174",
+    "build": "pnpm registry:build && VITE_APP_BASE_PATH=/basil-ui/ react-router build",
+    "dev": "VITE_APP_BASE_PATH=/basil-ui/ react-router dev --host --open --port 5174",
     "format": "pnpm format:prettier && pnpm format:pkg",
     "format:pkg": "sort-package-json package.json",
     "format:prettier": "prettier --write README.md ./app",
@@ -12,10 +12,10 @@
     "lint:prettier": "prettier --check README.md ./app",
     "prepare": "pnpm format:pkg",
     "registry:build": "shadcn registry:build",
-    "start": "pnpm build && pnpm dlx http-server ./build/client -o",
+    "start": "pnpm build && cp -r ./build/client ./build/basil-ui && pnpm dlx http-server ./build -o /basil-ui",
     "start:ssr": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc",
-    "test": "echo 'no tests yet'"
+    "test": "echo 'no tests yet'",
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@react-router/node": "^7.5.3",
