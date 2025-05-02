@@ -21,12 +21,9 @@ export function InstallButton({ name }: { name: string }) {
       variant="outline"
       onClick={handleCopy}
       title="Copy installation code"
-      className={cn(
-        // 'shadow-none bg-black text-white hover:bg-black hover:text-white dark:bg-white dark:text-black',
-        copied && 'animate-pulse',
-      )}
+      aria-label="Copy installation code"
+      className={cn('text-xs gap-2 inline-flex items-center', copied && 'animate-pulse')}
     >
-      {copied ? 'Copied' : 'Install'}
       {copied ? <CheckIcon className="w-4 h-4 text-primary" /> : <CopyIcon className="w-4 h-4" />}
     </Button>
   )

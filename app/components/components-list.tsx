@@ -8,13 +8,17 @@ import { SocialIcons } from './examples/social-icons'
 export function ComponentsList() {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:[&>div]:last:odd:col-span-2">
-      <ComponentCard name="button" description="Button">
+      <ComponentCard name="button" description="Button" examplePath="registry/basil-ui/ui/button.tsx">
         <Button>Click me</Button>
       </ComponentCard>
-      <ComponentCard name="theme-toggle" description="Theme Toggle">
+      <ComponentCard name="theme-toggle" description="Theme Toggle" examplePath="registry/basil-ui/ui/theme-toggle.tsx">
         <ThemeToggle />
       </ComponentCard>
-      <ComponentCard name="social-icons" description="Social Icons">
+      <ComponentCard
+        name="social-icons"
+        description="Social Icons"
+        examplePath="app/components/examples/social-icons.tsx"
+      >
         <SocialIcons />
       </ComponentCard>
     </div>
