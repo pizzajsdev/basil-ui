@@ -19,7 +19,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: 'icon',
-    href: '/favicon.png',
+    href: '/basil-ui/favicon.png',
     type: 'image/png',
   },
 ]
