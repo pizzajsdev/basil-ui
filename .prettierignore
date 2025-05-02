@@ -1,0 +1,20 @@
+# Ignore:
+build/
+dist/
+.next/
+.turbo/
+.react-router/
+node_modules/
+.yarn/
+.cache/
+coverage/
+.vercel/
+
+pnpm-*.yaml
+*.min.json
+
+.ignore/
+.local/
+
+public/
+drizzle/

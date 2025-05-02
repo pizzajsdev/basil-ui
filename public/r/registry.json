@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "basil-ui",
+  "homepage": "https://pizzajs.dev/basil-ui",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "hello-world",
+      "type": "registry:block",
+      "title": "Hello World",
+      "description": "A simple hello world block component",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/blocks/hello-world.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "A simple button component",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hello-world",
+  "type": "registry:block",
+  "title": "Hello World",
+  "description": "A simple hello world block component",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/basil-ui/blocks/hello-world.tsx",
+      "content": "export function HelloWorld() {\n  return <div className=\"text-2xl font-bold\">Hello World</div>\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}
