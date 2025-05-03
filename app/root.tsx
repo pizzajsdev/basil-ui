@@ -25,12 +25,15 @@ export const links: Route.LinksFunction = () => [
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const useReactScan = import.meta?.env?.DEV || false
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script dangerouslySetInnerHTML={{ __html: themeDetectJs }} />
+        {useReactScan && <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" />}
         <Meta />
         <Links />
       </head>

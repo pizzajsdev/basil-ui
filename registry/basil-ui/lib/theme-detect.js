@@ -2,11 +2,11 @@
   //
   // This script detects the user's preferred color scheme and updates the theme accordingly.
   //
-  // Example usage (in React Router root.tsx):
-  //
-  //  import themeDetectJs from '@/lib/theme-detect.js?raw'
-  //  // in the Layout component add this in the head, before other scripts to avoid UI flashing:
-  //  <script dangerouslySetInnerHTML={{ __html: themeDetectJs }} />
+  // Example usage (in React Router app/root.tsx, or Next.js app/layout.tsx):
+  // - Import the script as raw text: `import themeDetectJs from '@/lib/theme-detect.js?raw'`
+  // - In the Layout component add `<script dangerouslySetInnerHTML={{ __html: themeDetectJs }} />` in the head
+  //   before stylesheets and other scripts to avoid UI flashing
+  // - In the Layout component add `suppressHydrationWarning` to the html tag to avoid hydration errors
   //
   function getPreferredColorScheme() {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
