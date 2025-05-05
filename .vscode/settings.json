@@ -1,0 +1,21 @@
+{
+  "tailwindCSS.experimental.classRegex": ["cn\\('(.*)'\\)", "createRecipeFn\\('(.*)'\\)"],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    ".*Styles*",
+    ".*Class*",
+    ".*ClassName*",
+    ".*Classes*",
+    ".*ClassNames*",
+    ".*Recipe*",
+    ".*Recipes*",
+    ".*Variant*",
+    ".*Variants*"
+  ],
+  "files.exclude": {
+    ".react-router": true
+  }
+}
