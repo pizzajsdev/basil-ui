@@ -17,7 +17,7 @@ import {
   YoutubeIcon,
 } from '@/registry/basil-ui/ui/social-icons'
 
-export function SocialIcons() {
+export default function SocialIconsExample() {
   return (
     <div
       className={cn(
