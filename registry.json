@@ -81,6 +81,21 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "group",
+      "type": "registry:ui",
+      "title": "Group",
+      "description": "A component that visually groups other components together",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/group.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

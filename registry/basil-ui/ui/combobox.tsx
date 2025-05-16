@@ -29,7 +29,7 @@ function Trigger({ className, ...props }: React.ComponentProps<typeof ArkCombobo
 function DefaultTrigger({ className, ...props }: React.ComponentProps<typeof ArkCombobox.Trigger>) {
   return (
     <Trigger {...props} asChild>
-      <Button variant="link" aria-label="open" size="icon" className="group">
+      <Button variant="link" aria-label="open" size="icon" className="group z-2">
         <ChevronDownIcon className="group-data-[state=open]:rotate-180 transition-transform duration-200" />
       </Button>
     </Trigger>

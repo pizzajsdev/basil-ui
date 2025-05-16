@@ -1,8 +1,8 @@
 import { cn } from '@/registry/basil-ui/lib/utils'
 import { isSingleChild, Slot } from '@/registry/basil-ui/ui/slot'
+import { SpinnerIcon } from '@/registry/basil-ui/ui/spinner-icon'
 import { cva, type VariantProps } from 'class-variance-authority'
 import React from 'react'
-import { SpinnerIcon } from './spinner-icon'
 
 export const buttonVariants = cva(
   cn(
@@ -16,7 +16,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
+        default: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 border-background/40 border',
         destructive:
           'bg-destructive text-white shadow-xs hover:bg-destructive/90' +
           'focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',

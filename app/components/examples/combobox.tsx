@@ -26,11 +26,11 @@ export default function ComboboxExamples() {
   }
   return (
     <Combobox.Root collection={collection} onInputValueChange={handleInputChange} onOpenChange={handleOpenChange}>
-      <Combobox.Label>Framework</Combobox.Label>
+      {/* <Combobox.Label>Framework</Combobox.Label> */}
       <Combobox.Control>
         <Combobox.Input />
         <Combobox.DefaultTrigger>Open</Combobox.DefaultTrigger>
-        <Combobox.ClearTrigger />
+        {/* <Combobox.ClearTrigger /> */}
       </Combobox.Control>
       <Combobox.Positioner>
         <Combobox.Content>
