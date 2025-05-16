@@ -12,6 +12,7 @@
 @custom-variant closed (&:is([closed], [data-closed], [data-state="closed"]));
 @custom-variant disabled (&:is([disabled], [data-disabled], [data-state="disabled"]));
 @custom-variant highlighted (&:is([data-highlighted]));
+@custom-variant pressed (&:is([pressed], [data-pressed], [data-state="pressed"], [aria-pressed=true]));
 
 /* @custom-variant hidden (&:is([hidden])); */
 /*
@@ -72,17 +73,54 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
+
+  /* Brand colors */
+  --ui-color-primary: hsl(151, 51%, 50%);
+  --ui-color-primary-subtle: hsl(151, 51%, 60%);
+  --ui-color-primary-strong: hsl(151, 51%, 40%);
+
+  --ui-color-secondary: hsl(325, 47%, 55%);
+  --ui-color-secondary-subtle: hsl(325, 47%, 65%);
+  --ui-color-secondary-strong: hsl(325, 47%, 45%);
+
+  /* Base light/dark colors */
+  --ui-color-light-1: hsl(210, 18%, 98%);
+  --ui-color-light-2: hsl(210, 18%, 95%);
+  --ui-color-light-3: hsl(210, 18%, 90%);
+  --ui-color-light-4: hsl(210, 18%, 85%);
+  --ui-color-light-5: hsl(210, 18%, 80%);
+
+  --ui-color-dark-1: hsl(210, 28%, 12%);
+  --ui-color-dark-2: hsl(210, 28%, 15%);
+  --ui-color-dark-3: hsl(210, 28%, 20%);
+  --ui-color-dark-4: hsl(210, 28%, 25%);
+  --ui-color-dark-5: hsl(210, 28%, 30%);
+
+  /* Background colors */
+  --ui-color-surface-1: light-dark(var(--color-light-1), var(--color-dark-1));
+  --ui-color-surface-2: light-dark(var(--color-light-2), var(--color-dark-2));
+  --ui-color-surface-3: light-dark(var(--color-light-3), var(--color-dark-3));
+
+  /* Foreground colors */
+  --ui-color-foreground-1: light-dark(var(--color-dark-1), var(--color-light-1));
+  --ui-color-foreground-2: light-dark(var(--color-dark-3), var(--color-light-3));
+  --ui-color-foreground-3: light-dark(var(--color-dark-5), var(--color-light-5));
+
+  /* Border colors */
+  --ui-color-line-1: light-dark(var(--color-light-3), var(--color-dark-3));
+  --ui-color-line-2: light-dark(var(--color-light-4), var(--color-dark-4));
+  --ui-color-line-3: light-dark(var(--color-light-5), var(--color-dark-5));
 }
 
 .dark {
   /* Colors */
-  --background: #0e0e0e;
-  --foreground: #fafafa;
-  --muted-foreground: #c0c0c0;
-  --surface-1: #111111;
-  --surface-2: #191919;
-  --surface-3: #2a2a2a;
-  --border: #3a3a3a;
+  --background: hsl(0, 0%, 5%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted-foreground: hsl(0, 0%, 75%);
+  --surface-1: hsl(0, 0%, 7%);
+  --surface-2: hsl(0, 0%, 10%);
+  --surface-3: hsl(0, 0%, 16%);
+  --border: hsl(0, 0%, 23%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
 }

@@ -20,7 +20,7 @@ export const buttonVariants = cva(
         destructive:
           'bg-destructive text-white shadow-xs hover:bg-destructive/90' +
           'focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
-        outline: 'border bg-background shadow-xs bg-input/30 border-input hover:bg-input/50',
+        outline: 'border bg-background shadow-xs bg-input/30 border-input hover:bg-input/50 pressed:bg-surface-1',
         secondary: 'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
         ghost: 'hover:bg-input/50 hover:text-foreground dark:hover:bg-input/30',
         link: 'text-primary underline-offset-4 hover:underline',
@@ -43,6 +43,7 @@ export type ButtonProps = React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
     loading?: boolean
+    pressed?: boolean
   }
 
 export function Button({
@@ -52,11 +53,14 @@ export function Button({
   size,
   asChild = false,
   loading = false,
+  pressed = false,
   ...props
 }: ButtonProps) {
   const Comp = asChild ? Slot : 'button'
   const childrenProps = (children as any)?.props || {}
   let childrenWithSpinner: React.ReactNode = children
+
+  const pressedProps = pressed ? { 'data-state': 'pressed', 'aria-pressed': true } : {}
 
   if (loading) {
     if (isSingleChild(children)) {
@@ -87,6 +91,7 @@ export function Button({
       data-loading={loading === true ? true : undefined}
       aria-busy={loading === true ? true : undefined}
       {...props}
+      {...pressedProps}
     >
       {childrenWithSpinner}
     </Comp>

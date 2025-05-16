@@ -96,6 +96,21 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "toggle-group",
+      "type": "registry:block",
+      "title": "Toggle Group",
+      "description": "An example of a toggle group with single and multiple selection",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/blocks/toggle-group.tsx",
+          "type": "registry:block"
+        }
+      ]
     }
   ]
 }
