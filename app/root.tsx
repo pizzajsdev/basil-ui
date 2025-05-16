@@ -1,10 +1,10 @@
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from 'react-router'
 import type { Route } from './+types/root'
 
-import themeDetectJs from '@/registry/basil-ui/lib/theme-detect.js?raw'
-
-import './app.css'
 import { PageLayout } from './components/page-layout'
+
+import themeDetectJs from '@/registry/basil-ui/lib/theme-detect.js?raw'
+import appInlineCss from './app.css?inline'
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -14,7 +14,8 @@ export const links: Route.LinksFunction = () => [
     crossOrigin: 'anonymous',
   },
   {
-    rel: 'stylesheet',
+    as: 'style',
+    rel: 'preload',
     href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
   },
   {
@@ -24,11 +25,18 @@ export const links: Route.LinksFunction = () => [
   },
 ]
 
+export function clientLoader() {
+  return {
+    theme: localStorage.getItem('theme') || '',
+  }
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   const useReactScan = import.meta?.env?.DEV || false
+  const loaderData = useLoaderData<typeof clientLoader>()
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={loaderData?.theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,8 +44,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {useReactScan && <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" />}
         <Meta />
         <Links />
+        <style id="app_css" dangerouslySetInnerHTML={{ __html: appInlineCss }} />
       </head>
       <body>
+        <noscript>
+          <p className="text-center text-red-500 bg-red-100 p-4 rounded-lg px-8 py-4 m-4">
+            This app requires JavaScript to be enabled. Please enable JavaScript in your browser and try again.
+          </p>
+        </noscript>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -76,14 +90,16 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <PageLayout>
+      <main className="pt-16 p-4 container mx-auto">
+        <h1>{message}</h1>
+        <p>{details}</p>
+        {stack && (
+          <pre className="w-full p-4 overflow-x-auto">
+            <code>{stack}</code>
+          </pre>
+        )}
+      </main>
+    </PageLayout>
   )
 }

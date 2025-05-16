@@ -64,8 +64,9 @@ export default function GroupExample() {
 
   return (
     <div className="flex flex-col gap-4">
-      <Group>
+      <Group className="select-none">
         <Button
+          variant="outline"
           onPointerDown={() => startRepeating(decrement)}
           onPointerUp={stopRepeating}
           onPointerLeave={stopRepeating}
@@ -75,8 +76,16 @@ export default function GroupExample() {
         >
           -
         </Button>
-        <Input tabIndex={-1} value={value} className="text-center pointer-events-none select-none" />
+        <Input
+          role="spinbutton"
+          inputMode="decimal"
+          tabIndex={-1}
+          defaultValue={value}
+          className="text-center"
+          onChange={(e) => setValue(Number(e.target.value))}
+        />
         <Button
+          variant="outline"
           onPointerDown={() => startRepeating(increment)}
           onPointerUp={stopRepeating}
           onPointerLeave={stopRepeating}

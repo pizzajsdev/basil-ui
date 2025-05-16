@@ -9,10 +9,11 @@ import SocialIconsExample from './examples/social-icons'
 
 export function ComponentsList() {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:[&>div]:last:odd:col-span-2">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:[&>div]:last:odd:col-span-2"> */}
       <ComponentCard
         name="button"
-        className="sm:row-span-2"
+        // className="sm:row-span-2"
         description="Button"
         examplePath="app/components/examples/button.tsx"
       >
@@ -31,7 +32,7 @@ export function ComponentsList() {
         name="social-icons"
         description="Social Icons"
         examplePath="app/components/examples/social-icons.tsx"
-        className="sm:col-span-2"
+        // className="sm:col-span-2"
       >
         <SocialIconsExample />
       </ComponentCard>

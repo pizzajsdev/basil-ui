@@ -1,12 +1,26 @@
 import { GithubIcon } from '@/registry/basil-ui/ui/social-icons'
 import { ThemeToggle } from '@/registry/basil-ui/ui/theme-toggle'
+import { Link } from 'react-router'
 import { Footer } from './footer'
 
 export function PageLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="max-w-3xl mx-auto flex flex-col min-h-svh p-4 gap-8 justify-between">
-      <header className="flex flex-col items-center gap-9">
-        <div className="flex items-center gap-2 absolute top-4 right-4">
+    <main className="max-w-4xl mx-auto flex flex-col min-h-svh p-4 gap-8 justify-between">
+      <header className="justify-between items-center gap-4 grid grid-cols-4">
+        <div />{' '}
+        <h1 className="contents">
+          <Link to="/" className="p-4 flex flex-col sm:flex-row items-center justify-center gap-2 col-span-2">
+            <img
+              src={'/basil-ui/logo.png'}
+              alt="Basil UI"
+              width={64}
+              height={64}
+              className="block w-[64px] h-[64px] sm:w-[32px] sm:h-[32px]"
+            />
+            <span className="text-4xl font-bold text-foreground">Basil UI</span>
+          </Link>
+        </h1>
+        <div className="flex self-start sm:self-center items-center justify-end gap-2">
           <a
             href="https://github.com/pizzajsdev/basil-ui"
             target="_blank"
@@ -18,12 +32,8 @@ export function PageLayout({ children }: { children: React.ReactNode }) {
           </a>
           <ThemeToggle />
         </div>
-        <h1 className="w-[500px] max-w-[100vw] p-4 flex flex-col items-center justify-center">
-          <img src={'/basil-ui/logo.png'} alt="Basil UI" className="block w-full max-w-[100px] h-auto" />
-          <span className="text-4xl font-bold">Basil UI</span>
-        </h1>
       </header>
-      <div className="flex-1">{children}</div>
+      {children}
       <Footer />
     </main>
   )

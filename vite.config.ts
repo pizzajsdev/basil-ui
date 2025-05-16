@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-  base: process.env.VITE_APP_BASE_PATH,
+  // If defined, the base path should contain start + end slashes, e.g. PIZZA_APP_BASE_PATH=/foo/
+  base: process.env['PIZZA_APP_BASE_PATH'] || '/',
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
 })

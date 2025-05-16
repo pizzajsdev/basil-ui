@@ -2,7 +2,7 @@ import { cn } from '@/registry/basil-ui/lib/utils'
 import { isSingleChild, Slot } from '@/registry/basil-ui/ui/slot'
 import { SpinnerIcon } from '@/registry/basil-ui/ui/spinner-icon'
 import { cva, type VariantProps } from 'class-variance-authority'
-import React from 'react'
+import { cloneElement, type ReactNode } from 'react'
 
 export const buttonVariants = cva(
   cn(
@@ -58,13 +58,13 @@ export function Button({
 }: ButtonProps) {
   const Comp = asChild ? Slot : 'button'
   const childrenProps = (children as any)?.props || {}
-  let childrenWithSpinner: React.ReactNode = children
+  let childrenWithSpinner: ReactNode = children
 
   const pressedProps = pressed ? { 'data-state': 'pressed', 'aria-pressed': true } : {}
 
   if (loading) {
     if (isSingleChild(children)) {
-      childrenWithSpinner = React.cloneElement<any>(children, {
+      childrenWithSpinner = cloneElement<any>(children, {
         className: cn(childrenProps?.className),
         children: (
           <>
