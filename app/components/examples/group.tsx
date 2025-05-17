@@ -1,8 +1,8 @@
-import { ToggleGroup, ToggleGroupMulti } from '@/registry/basil-ui/blocks/toggle-group'
 import { Button } from '@/registry/basil-ui/ui/button'
 import { Group } from '@/registry/basil-ui/ui/group'
 import { Input } from '@/registry/basil-ui/ui/input'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { ComponentCard } from '../component-card'
 
 export default function GroupExample() {
   const [value, setValue] = useState<number>(1)
@@ -63,43 +63,41 @@ export default function GroupExample() {
   }, [])
 
   return (
-    <div className="flex flex-col gap-4">
-      <Group className="select-none">
-        <Button
-          variant="outline"
-          onPointerDown={() => startRepeating(decrement)}
-          onPointerUp={stopRepeating}
-          onPointerLeave={stopRepeating}
-          onKeyDown={(e) => handleKeyDown(e, decrement)}
-          onKeyUp={handleKeyUp}
-          disabled={value === 1}
-        >
-          -
-        </Button>
-        <Input
-          role="spinbutton"
-          inputMode="decimal"
-          tabIndex={-1}
-          defaultValue={value}
-          className="text-center"
-          onChange={(e) => setValue(Number(e.target.value))}
-        />
-        <Button
-          variant="outline"
-          onPointerDown={() => startRepeating(increment)}
-          onPointerUp={stopRepeating}
-          onPointerLeave={stopRepeating}
-          onKeyDown={(e) => handleKeyDown(e, increment)}
-          onKeyUp={handleKeyUp}
-          disabled={value === 10}
-        >
-          +
-        </Button>
-      </Group>
-      <br />
-      <p className="text-sm text-muted-foreground sm:pl-3">Toggle Group</p>
-      <ToggleGroup />
-      <ToggleGroupMulti />
-    </div>
+    <ComponentCard name="group" description="Group" examplePath="app/components/examples/group.tsx">
+      <div className="flex flex-col gap-4">
+        <Group className="select-none">
+          <Button
+            variant="outline"
+            onPointerDown={() => startRepeating(decrement)}
+            onPointerUp={stopRepeating}
+            onPointerLeave={stopRepeating}
+            onKeyDown={(e) => handleKeyDown(e, decrement)}
+            onKeyUp={handleKeyUp}
+            disabled={value === 1}
+          >
+            -
+          </Button>
+          <Input
+            role="spinbutton"
+            inputMode="decimal"
+            tabIndex={-1}
+            defaultValue={value}
+            className="text-center"
+            onChange={(e) => setValue(Number(e.target.value))}
+          />
+          <Button
+            variant="outline"
+            onPointerDown={() => startRepeating(increment)}
+            onPointerUp={stopRepeating}
+            onPointerLeave={stopRepeating}
+            onKeyDown={(e) => handleKeyDown(e, increment)}
+            onKeyUp={handleKeyUp}
+            disabled={value === 10}
+          >
+            +
+          </Button>
+        </Group>
+      </div>
+    </ComponentCard>
   )
 }

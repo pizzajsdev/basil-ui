@@ -1,5 +1,6 @@
 import { Combobox, type ComboboxInputValueChangeDetails, createListCollection } from '@/registry/basil-ui/ui/combobox'
 import { useState } from 'react'
+import { ComponentCard } from '../component-card'
 
 const initialCollection = createListCollection({
   items: [
@@ -10,7 +11,7 @@ const initialCollection = createListCollection({
   ],
 })
 
-export default function ComboboxExamples() {
+export default function ComboboxExample() {
   const [collection, setCollection] = useState(initialCollection)
 
   const handleInputChange = ({ inputValue }: ComboboxInputValueChangeDetails) => {
@@ -25,26 +26,28 @@ export default function ComboboxExamples() {
     setCollection(initialCollection)
   }
   return (
-    <Combobox.Root collection={collection} onInputValueChange={handleInputChange} onOpenChange={handleOpenChange}>
-      {/* <Combobox.Label>Framework</Combobox.Label> */}
-      <Combobox.Control>
-        <Combobox.Input />
-        <Combobox.DefaultTrigger>Open</Combobox.DefaultTrigger>
-        {/* <Combobox.ClearTrigger /> */}
-      </Combobox.Control>
-      <Combobox.Positioner>
-        <Combobox.Content>
-          <Combobox.ItemGroup>
-            <Combobox.ItemGroupLabel>Frameworks</Combobox.ItemGroupLabel>
-            {collection.items.map((item) => (
-              <Combobox.Item key={item.value} item={item}>
-                <Combobox.ItemText>{item.label}</Combobox.ItemText>
-                <Combobox.ItemIndicator>✓</Combobox.ItemIndicator>
-              </Combobox.Item>
-            ))}
-          </Combobox.ItemGroup>
-        </Combobox.Content>
-      </Combobox.Positioner>
-    </Combobox.Root>
+    <ComponentCard name="combobox" description="Combobox" examplePath="app/components/examples/combobox.tsx">
+      <Combobox.Root collection={collection} onInputValueChange={handleInputChange} onOpenChange={handleOpenChange}>
+        {/* <Combobox.Label>Framework</Combobox.Label> */}
+        <Combobox.Control>
+          <Combobox.Input />
+          <Combobox.DefaultTrigger>Open</Combobox.DefaultTrigger>
+          {/* <Combobox.ClearTrigger /> */}
+        </Combobox.Control>
+        <Combobox.Positioner>
+          <Combobox.Content>
+            <Combobox.ItemGroup>
+              <Combobox.ItemGroupLabel>Frameworks</Combobox.ItemGroupLabel>
+              {collection.items.map((item) => (
+                <Combobox.Item key={item.value} item={item}>
+                  <Combobox.ItemText>{item.label}</Combobox.ItemText>
+                  <Combobox.ItemIndicator>✓</Combobox.ItemIndicator>
+                </Combobox.Item>
+              ))}
+            </Combobox.ItemGroup>
+          </Combobox.Content>
+        </Combobox.Positioner>
+      </Combobox.Root>
+    </ComponentCard>
   )
 }

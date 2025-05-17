@@ -1,41 +1,56 @@
-import { ThemeToggle } from '@/registry/basil-ui/ui/theme-toggle'
-import { ComponentCard } from './component-card'
-import ButtonExample from './examples/button'
-import ComboboxExamples from './examples/combobox'
-import GroupExample from './examples/group'
-import SocialIconsExample from './examples/social-icons'
-// This page displays items from the custom registry.
-// You are free to implement this with your own design as needed.
+import { lazy, type LazyExoticComponent } from 'react'
 
-export function ComponentsList() {
-  return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:[&>div]:last:odd:col-span-2"> */}
-      <ComponentCard
-        name="button"
-        // className="sm:row-span-2"
-        description="Button"
-        examplePath="app/components/examples/button.tsx"
-      >
-        <ButtonExample />
-      </ComponentCard>
-      <ComponentCard name="theme-toggle" description="Theme Toggle" examplePath="registry/basil-ui/ui/theme-toggle.tsx">
-        <ThemeToggle />
-      </ComponentCard>
-      <ComponentCard name="group" description="Group" examplePath="app/components/examples/group.tsx">
-        <GroupExample />
-      </ComponentCard>
-      <ComponentCard name="combobox" description="Combobox" examplePath="app/components/examples/combobox.tsx">
-        <ComboboxExamples />
-      </ComponentCard>
-      <ComponentCard
-        name="social-icons"
-        description="Social Icons"
-        examplePath="app/components/examples/social-icons.tsx"
-        // className="sm:col-span-2"
-      >
-        <SocialIconsExample />
-      </ComponentCard>
-    </div>
-  )
+export type ComponentHash = Record<
+  string,
+  {
+    id: string
+    label: string
+    component: LazyExoticComponent<() => React.ReactNode>
+  }
+>
+
+export const componentsList: ComponentHash = {
+  button: {
+    id: 'button',
+    label: 'Button',
+    component: lazy(() => import('./examples/button')),
+  },
+  input: {
+    id: 'input',
+    label: 'Input',
+    component: lazy(() => import('./examples/input')),
+  },
+  combobox: {
+    id: 'combobox',
+    label: 'Combobox',
+    component: lazy(() => import('./examples/combobox')),
+  },
+  group: {
+    id: 'group',
+    label: 'Group',
+    component: lazy(() => import('./examples/group')),
+  },
+  'theme-toggle': {
+    id: 'theme-toggle',
+    label: 'Theme Toggle',
+    component: lazy(() => import('./examples/theme-toggle')),
+  },
+  'social-icons': {
+    id: 'social-icons',
+    label: 'Social Icons',
+    component: lazy(() => import('./examples/social-icons')),
+  },
+  'code-snippet': {
+    id: 'code-snippet',
+    label: 'Code Snippet',
+    component: lazy(() => import('./coming-soon')),
+  },
+}
+
+export const blocksList: ComponentHash = {
+  'toggle-group': {
+    id: 'toggle-group',
+    label: 'Toggle Group',
+    component: lazy(() => import('./examples/toggle-group')),
+  },
 }
