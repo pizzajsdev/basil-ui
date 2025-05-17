@@ -1,4 +1,5 @@
 import type { Config } from '@react-router/dev/config'
+import { blocksList, componentsList } from './app/components/components-list'
 
 export default {
   // Config options...
@@ -10,7 +11,10 @@ export default {
   // If defined, the base path should contain start + end slashes, e.g. PIZZA_APP_BASE_PATH=/foo/
   basename: process.env['PIZZA_APP_BASE_PATH'],
   async prerender({ getStaticPaths }) {
-    // const demos = ['demo-1', 'demo-2', 'demo-3']
-    return [...getStaticPaths()] // ...demos.map((demo) => `/demos/${demo}`)]
+    return [
+      ...getStaticPaths(),
+      ...Object.entries(componentsList).map(([id]) => `/components/${id}`),
+      ...Object.entries(blocksList).map(([id]) => `/blocks/${id}`),
+    ]
   },
 } satisfies Config
