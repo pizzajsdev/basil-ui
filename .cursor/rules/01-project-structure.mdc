@@ -1,0 +1,37 @@
+---
+description: creating new files
+globs: 
+alwaysApply: false
+---
+# Project Structure
+
+This is a React application built with React Router 7+, React 19+, and TailwindCSS 4+. The project follows a specific structure:
+
+## Key Directories
+
+- [app/](mdc:app) - Main application code. It's an app that documents the [registry/](mdc:registry)
+  - [components/](mdc:app/components) - React components
+    - [ui/](mdc:app/components/ui) - Reusable UI components
+    - [examples/](mdc:app/components/examples) - Example implementations
+  - [lib/](mdc:app/lib) - Shared utilities and helpers
+  - [routes/](mdc:app/routes) - React Router route components
+    - [(docs)/](mdc:app/routes/(docs)) - Documentation routes
+      - [blocks/](mdc:app/routes/(docs):id/) - Documentation page for a single block component
+      - [components/](mdc:app/routes/(docs):id/) - Documentation page for a single primitive component
+
+- [registry/](mdc:registry) - Component registry
+  - [basil-ui/](mdc:registry/basil-ui) - Core UI components
+
+- [.react-router/](mdc:.react-router) - Auto-generated React Router types (do not edit)
+
+## Configuration Files
+
+- [react-router.config.ts](mdc:react-router.config.ts) - React Router configuration
+- [vite.config.ts](mdc:vite.config.ts) - Vite bundler configuration
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript configuration
+- [components.json](mdc:components.json) - UI components configuration
+
+
+## Other
+
+All `.local` dirs should be ignored.

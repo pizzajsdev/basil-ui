@@ -1,0 +1,46 @@
+---
+description: creating new routes or editing existing ones
+globs: 
+alwaysApply: false
+---
+# Routing and Documentation
+
+## React Router Conventions
+
+- Import from `react-router` (successor to Remix)
+- Route files follow this structure:
+  ```typescript
+  import type { Route } from './+types/index'
+  
+  export async function loader ({ params, request, context }: Route.LoaderArgs) {
+    // ... runs only on the server, and the returned value is exposed to the client
+  }
+  
+  export async function clientLoader ({ params, request, context }: Route.ClientLoaderArgs) {
+    // ... runs only un the client, and the returned value is exposed to client
+  }
+  
+  export async function action ({ params, request, context }: Route.ActionArgs) {
+    // ... runs on the server if SSR is enabled in React Router config, otherwise in the client
+  }
+  
+  export default function Component({ loaderData, actionData, params }: Route.ComponentProps) {
+    // ...
+  }
+  ```
+
+## Documentation Structure
+
+- Documentation routes are under `app/routes/(docs)/`
+- Documentation blocks are in `app/routes/(docs)/blocks/`
+- Documentation components are in `app/routes/(docs)/components/`
+- Component examples are in `app/components/examples/`
+
+Registry components are taken from `@/registry/basil-ui/`
+
+## Type Generation
+
+- Route types are auto-generated in `.react-router/types/` and imported using `./+types/ROUTE_FILENAME`, e.g. for a route file like `blog/[slug].tsx` the import would be `'./+types/[slug]'`
+- Never manually edit files in `+types/` directories, they are automatically generated.
+- Type errors in these files will be fixed automatically, don't try to fix them.
+- Wait for React Router to regenerate types when adding new routes (3-5s max).

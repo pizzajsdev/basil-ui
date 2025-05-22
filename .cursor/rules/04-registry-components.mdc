@@ -1,0 +1,117 @@
+---
+description: creating new registry components
+globs: 
+alwaysApply: false
+---
+# Registry Components Guide
+
+## Component Structure
+
+Registry components are organized in three main locations:
+- [registry/basil-ui/](mdc:registry/basil-ui) - Source components
+  - `ui/` - Core UI components
+  - `blocks/` - Complex component examples
+  - `lib/` - Component-specific utilities
+
+## General Rules
+
+- Pass the rest of `...props` to the most important element.
+- Use `React.ComponentPropsWithRef` over `React.ComponentPropsWithoutRef`.
+- For composable parts, prefer `React.ReactNode` over `string`, e.g. labels.
+
+## Adding a New Component
+
+### 1. Create Component Source
+
+Create the component in the appropriate directory:
+- UI components: `registry/basil-ui/ui/my-component.tsx`
+- Block examples: `registry/basil-ui/blocks/my-block.tsx`
+- Utilities: `registry/basil-ui/lib/my-util.ts`
+
+### 2. Update Registry Configuration
+
+Add the component to [registry.json](mdc:registry.json):
+```json
+{
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "my-component",
+      "type": "registry:ui",  // or "registry:block"
+      "title": "My Component",
+      "description": "Description of the component",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/my-component.tsx",
+          "type": "registry:ui"
+        },
+        // Add any additional files (lib, etc)
+      ]
+    }
+  ]
+}
+```
+
+### 3. Create Example Implementation
+
+Add an example in [app/components/examples/](mdc:app/components/examples):
+```typescript
+// app/components/examples/my-component.tsx
+export default function MyComponentExample() {
+  return (
+    // Implementation showing component usage
+  )
+}
+```
+
+### 4. Register in Components List
+
+Add to [app/components/components-list.tsx](mdc:app/components/components-list.tsx):
+```typescript
+// For UI components
+export const componentsList: ComponentHash = {
+  'my-component': {
+    id: 'my-component',
+    label: 'My Component',
+    component: lazy(() => import('./examples/my-component')),
+  },
+}
+
+// For blocks
+export const blocksList: ComponentHash = {
+  'my-block': {
+    id: 'my-block',
+    label: 'My Block',
+    component: lazy(() => import('./examples/my-block')),
+  },
+}
+```
+
+## Component Types
+
+- `registry:ui` - Reusable UI components (buttons, inputs, etc.)
+- `registry:block` - Complex examples or patterns
+- `registry:lib` - Utility functions and helpers
+
+## Naming Conventions
+
+- File names: kebab-case (`my-component.tsx`)
+- Registry names: kebab-case (`my-component`)
+- Component names: PascalCase (`MyComponent`)
+- Example files: Same name as registry component
+
+## Dependencies
+
+- List any npm dependencies in the registry item's `dependencies` array
+- List any other registry components needed in `registryDependencies`
+- Keep dependencies minimal and explicit
+
+## Documentation
+
+- Examples should demonstrate common use cases
+- Include prop variations where applicable
+- Show integration with other components if relevant
+- Add comments for complex implementations
+- Wrap examples in a `<ComponentCard>` like the other examples

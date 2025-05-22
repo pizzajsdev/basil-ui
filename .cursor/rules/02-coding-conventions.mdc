@@ -1,0 +1,58 @@
+---
+description: for new features, creating new files or editing existing ones
+globs: 
+alwaysApply: false
+---
+# Coding Conventions
+
+## React Components
+
+- Component files use kebab-case naming: `my-component.tsx`
+- Prefer named exports over default exports
+- Preferably always use local UI components from `@/components/ui` when available
+- Use React 19.1+ conventions (no forwardRef needed, ref is a prop)
+- Prefer context and state management over prop-drilling, when makes sense
+- Always consider rendering performance and use refs/effects/state/context smartly
+
+## TypeScript
+
+- Use erasable TypeScript syntax, e.g.:
+  - No property declarations in constructors
+  - No enums
+- Import route types from auto-generated files, e.g. for index.tsx:
+  ```typescript
+  import type { Route } from './+types/index'
+  ```
+- For a route file like `eng/blog/[slug].tsx` the import would be `'./+types/[slug]'`
+- Don't generate `./+types/*`, React Router does that automatically.
+- Don't try to fix type errors if `./+types/*` are missing, they will be eventually fixed automatically.
+- Don't modify auto-generated types in `.react-router/*`
+
+## Styling
+
+- Use TailwindCSS 4 with CSS-based configuration
+- Wrap multiple classes with the `cn()` utility:
+  ```typescript
+  import { cn } from '@/lib/utils'
+  
+  className={cn(
+    'base-styles font-bold',
+    {
+      'conditional-style': condition
+    }
+  )}
+  ```
+
+## Architecture
+
+- Follow Domain-Driven Design (DDD) principles
+- Use dependency injection for services and repositories
+- Repository classes abstract Drizzle ORM operations
+- Service classes abstract business logic
+- Services can use other repositories/services via constructor injection
+- Use interfaces over concrete classes for dependencies
+
+## Package Management
+
+- Always use `pnpm` instead of `npm`
+- Maintain explicit versions in `package.json`
