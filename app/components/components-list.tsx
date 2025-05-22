@@ -10,6 +10,7 @@ export type ComponentHash = Record<
 >
 
 export const componentsList: ComponentHash = {
+  // base primitives:
   button: {
     id: 'button',
     label: 'Button',
@@ -19,6 +20,16 @@ export const componentsList: ComponentHash = {
     id: 'input',
     label: 'Input',
     component: lazy(() => import('./examples/input')),
+  },
+  checkbox: {
+    id: 'checkbox',
+    label: 'Checkbox',
+    component: lazy(() => import('./examples/checkbox')),
+  },
+  radio: {
+    id: 'radio',
+    label: 'Radio',
+    component: lazy(() => import('./examples/radio')),
   },
   combobox: {
     id: 'combobox',
@@ -30,6 +41,12 @@ export const componentsList: ComponentHash = {
     label: 'Group',
     component: lazy(() => import('./examples/group')),
   },
+  // more complex:
+  'code-block': {
+    id: 'code-block',
+    label: 'Code Block',
+    component: lazy(() => import('./coming-soon')),
+  },
   'theme-toggle': {
     id: 'theme-toggle',
     label: 'Theme Toggle',
@@ -39,11 +56,6 @@ export const componentsList: ComponentHash = {
     id: 'social-icons',
     label: 'Social Icons',
     component: lazy(() => import('./examples/social-icons')),
-  },
-  'code-snippet': {
-    id: 'code-snippet',
-    label: 'Code Snippet',
-    component: lazy(() => import('./coming-soon')),
   },
 }
 

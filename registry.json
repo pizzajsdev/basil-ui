@@ -111,6 +111,51 @@
           "type": "registry:block"
         }
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "An accessible checkbox component with support for labels, descriptions, and error states",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "An accessible radio button component with support for labels, descriptions, and error states",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/radio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "A radio group component that manages a set of radio buttons",
+      "dependencies": [],
+      "registryDependencies": ["radio"],
+      "files": [
+        {
+          "path": "registry/basil-ui/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

@@ -43,6 +43,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -70,6 +72,8 @@
   --primary-foreground: hsl(151, 80%, 4%);
   --accent: hsl(251, 51%, 52%);
   --accent-foreground: hsl(251, 80%, 94%);
+  --destructive: hsl(351, 51%, 52%);
+  --destructive-foreground: hsl(351, 80%, 94%);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
@@ -110,6 +114,11 @@
   --ui-color-line-1: light-dark(var(--color-light-3), var(--color-dark-3));
   --ui-color-line-2: light-dark(var(--color-light-4), var(--color-dark-4));
   --ui-color-line-3: light-dark(var(--color-light-5), var(--color-dark-5));
+
+  /* State colors */
+  --ui-color-destructive: hsl(351, 51%, 52%);
+  --ui-color-destructive-subtle: hsl(351, 51%, 60%);
+  --ui-color-destructive-strong: hsl(351, 51%, 40%);
 }
 
 .dark {
