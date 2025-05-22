@@ -18,16 +18,18 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-foreground-1 text-surface-1 shadow-xs hover:bg-foreground-1/90 border border-foreground-1',
+        default:
+          'bg-foreground-1 text-surface-1 shadow-xs hover:bg-foreground-1/90 pressed:bg-foreground-1/90 border border-foreground-1',
         // inverted: 'bg-surface-0 text-foreground-0 shadow-xs hover:bg-surface-2 border border-surface-0',
-        primary: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 border-primary border',
-        accent: 'bg-accent text-accent-foreground shadow-xs hover:bg-accent/90 border-accent border',
+        primary:
+          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 pressed:bg-primary/90 border-primary border',
+        accent:
+          'bg-accent text-accent-foreground shadow-xs hover:bg-accent/90 pressed:bg-accent/90 border-accent border',
         destructive:
-          'bg-destructive dark:bg-destructive-strong text-white shadow-xs hover:bg-destructive/90' +
+          'bg-destructive dark:bg-destructive-strong text-white shadow-xs hover:bg-destructive/90 pressed:bg-destructive/90' +
           'focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',
-        outline:
-          'border bg-transparent shadow-xs border-input hover:bg-input/50 pressed:bg-white/90 dark:pressed:bg-black/40',
-        ghost: 'hover:bg-input/50 hover:text-foreground dark:hover:bg-input/30',
+        outline: 'border bg-transparent shadow-xs border-input hover:bg-input/50 pressed:bg-input/50',
+        ghost: 'hover:bg-input/50 hover:text-foreground dark:hover:bg-input/30 pressed:bg-input/50',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {

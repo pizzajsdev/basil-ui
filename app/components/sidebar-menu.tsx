@@ -51,9 +51,9 @@ export function SidebarMenu() {
                 <Link
                   to={item.href}
                   className={cn(
-                    'px-2 py-1 rounded-md block hover:bg-surface-1 transition-colors border border-transparent',
+                    'px-2 py-1 rounded-md block hover:bg-surface-2 transition-colors border border-transparent',
                     'font-normal',
-                    currentPath === item.href && 'border border-surface-3 bg-surface-1',
+                    currentPath === item.href && 'bg-surface-2',
                   )}
                 >
                   {item.label}

@@ -18,25 +18,25 @@
     light: ':root &, .light &',
     invalid: '&:is([aria-invalid])',*/
 
-@layer base {
-  :root {
-    /* Brand colors */
-    --ui-color-basil: hsl(151, 51%, 50%);
-    --ui-color-basil-foreground: var(--ui-color-dark-0);
-    --ui-color-basil-subtle: hsl(151, 51%, 60%);
-    --ui-color-basil-strong: hsl(151, 51%, 40%);
-  }
+@theme inline {
+  /* Brand colors */
+  --color-basil: hsl(151, 51%, 50%);
+  --color-basil-foreground: var(--ui-color-dark-0);
+  --color-basil-subtle: hsl(151, 51%, 60%);
+  --color-basil-strong: hsl(151, 51%, 40%);
+}
 
+@layer base {
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-surface-1 text-foreground font-sans antialiased;
     min-width: 300px;
   }
 
   p a {
-    @apply var(--ui-color-basil);
+    @apply text-basil;
   }
 
   p a:hover {
-    @apply var(--ui-color-basil-strong);
+    @apply text-basil-strong;
   }
 }
