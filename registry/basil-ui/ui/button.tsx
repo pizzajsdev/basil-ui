@@ -9,19 +9,24 @@ export const buttonVariants = cva(
     'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm',
     'font-medium transition-all disabled:pointer-events-none disabled:opacity-50',
     "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0",
-    '[&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50',
-    'focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
+    '[&_svg]:shrink-0 outline-none',
+    // todo: move ring / focus into a reusable variable so it can be used in other components
+    'focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-0 focus-visible:z-1',
+    'focus-visible:ring-[1px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
     'aria-invalid:border-destructive',
   ),
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 border-background/40 border',
+        default: 'bg-foreground-1 text-surface-1 shadow-xs hover:bg-foreground-1/90 border border-foreground-1',
+        // inverted: 'bg-surface-0 text-foreground-0 shadow-xs hover:bg-surface-2 border border-surface-0',
+        primary: 'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 border-primary border',
+        accent: 'bg-accent text-accent-foreground shadow-xs hover:bg-accent/90 border-accent border',
         destructive:
-          'bg-destructive text-white shadow-xs hover:bg-destructive/90' +
-          'focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
-        outline: 'border bg-background shadow-xs bg-input/30 border-input hover:bg-input/50 pressed:bg-surface-1',
-        secondary: 'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
+          'bg-destructive dark:bg-destructive-strong text-white shadow-xs hover:bg-destructive/90' +
+          'focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',
+        outline:
+          'border bg-transparent shadow-xs border-input hover:bg-input/50 pressed:bg-white/90 dark:pressed:bg-black/40',
         ghost: 'hover:bg-input/50 hover:text-foreground dark:hover:bg-input/30',
         link: 'text-primary underline-offset-4 hover:underline',
       },

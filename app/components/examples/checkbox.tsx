@@ -4,7 +4,7 @@ import { ComponentCard } from '../component-card'
 export default function CheckboxExample() {
   return (
     <ComponentCard name="checkbox" description="Checkbox" examplePath="app/components/examples/checkbox.tsx">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 flex-1 p-2">
         {/* Basic checkbox */}
         <Checkbox label="Basic checkbox" />
 

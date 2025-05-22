@@ -1,8 +1,10 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import * as React from 'react'
+import { Children, cloneElement, isValidElement, useCallback, useEffect, useId, useState } from 'react'
 import { Radio } from './radio'
+
+type RadioElement = React.ReactElement<React.ComponentProps<typeof Radio>>
 
 export interface RadioGroupProps extends React.ComponentPropsWithoutRef<'div'> {
   /**
@@ -37,9 +39,8 @@ export interface RadioGroupProps extends React.ComponentPropsWithoutRef<'div'> {
    * Optional default value
    */
   defaultValue?: string
+  children: RadioElement[] | RadioElement
 }
-
-type RadioElement = React.ReactElement<React.ComponentProps<typeof Radio>>
 
 export function RadioGroup({
   className,
@@ -54,17 +55,17 @@ export function RadioGroup({
   disabled,
   ...props
 }: RadioGroupProps) {
-  const id = React.useId()
-  const [selectedValue, setSelectedValue] = React.useState(value ?? defaultValue)
+  const id = useId()
+  const [selectedValue, setSelectedValue] = useState(value ?? defaultValue)
 
   // Update internal state when controlled value changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (value !== undefined) {
       setSelectedValue(value)
     }
   }, [value])
 
-  const handleChange = React.useCallback(
+  const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value
       setSelectedValue(newValue)
@@ -74,14 +75,14 @@ export function RadioGroup({
   )
 
   // Clone children and inject necessary props
-  const radioButtons = React.Children.map(children, (child) => {
-    if (!React.isValidElement(child)) return child
+  const radioButtons = Children.map(children, (child) => {
+    if (!isValidElement(child)) return child
 
     // Ensure the child is a Radio component
-    const radioChild = child as RadioElement
+    const radioChild = child
     if (!radioChild) return child
 
-    return React.cloneElement(radioChild, {
+    return cloneElement(radioChild, {
       name,
       checked: radioChild.props.value === selectedValue,
       onChange: handleChange,

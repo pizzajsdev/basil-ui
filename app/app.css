@@ -1,18 +1,4 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-
-@theme {
-  --font-sans:
-    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
-}
-
-@custom-variant dark (&:is(.dark *));
-@custom-variant open (&:is([open], [data-open], [data-state="open"]));
-@custom-variant closed (&:is([closed], [data-closed], [data-state="closed"]));
-@custom-variant disabled (&:is([disabled], [data-disabled], [data-state="disabled"]));
-@custom-variant highlighted (&:is([data-highlighted]));
-@custom-variant pressed (&:is([pressed], [data-pressed], [data-state="pressed"], [aria-pressed=true]));
+@import './basil.css';
 
 /* @custom-variant hidden (&:is([hidden])); */
 /*
@@ -32,126 +18,25 @@
     light: ':root &, .light &',
     invalid: '&:is([aria-invalid])',*/
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-surface-1: var(--surface-1);
-  --color-surface-2: var(--surface-2);
-  --color-surface-3: var(--surface-3);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-
-  --z-index-1: 1;
-  --z-index-high: 100;
-  --z-index-highest: 200;
-}
-
-:root {
-  --radius: 0.625rem;
-  /* Colors */
-  --background: #f9f9f9;
-  --foreground: oklch(0.145 0 0);
-  --muted-foreground: oklch(0.145 0 0 / 0.5);
-  --surface-1: #fcfcfc;
-  --surface-2: #ffffff;
-  --surface-3: #f2f2f2;
-  --primary: hsl(151, 51%, 52%);
-  --primary-foreground: hsl(151, 80%, 4%);
-  --accent: hsl(251, 51%, 52%);
-  --accent-foreground: hsl(251, 80%, 94%);
-  --destructive: hsl(351, 51%, 52%);
-  --destructive-foreground: hsl(351, 80%, 94%);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-
-  /* Brand colors */
-  --ui-color-primary: hsl(151, 51%, 50%);
-  --ui-color-primary-subtle: hsl(151, 51%, 60%);
-  --ui-color-primary-strong: hsl(151, 51%, 40%);
-
-  --ui-color-secondary: hsl(325, 47%, 55%);
-  --ui-color-secondary-subtle: hsl(325, 47%, 65%);
-  --ui-color-secondary-strong: hsl(325, 47%, 45%);
-
-  /* Base light/dark colors */
-  --ui-color-light-1: hsl(210, 18%, 98%);
-  --ui-color-light-2: hsl(210, 18%, 95%);
-  --ui-color-light-3: hsl(210, 18%, 90%);
-  --ui-color-light-4: hsl(210, 18%, 85%);
-  --ui-color-light-5: hsl(210, 18%, 80%);
-
-  --ui-color-dark-1: hsl(210, 28%, 12%);
-  --ui-color-dark-2: hsl(210, 28%, 15%);
-  --ui-color-dark-3: hsl(210, 28%, 20%);
-  --ui-color-dark-4: hsl(210, 28%, 25%);
-  --ui-color-dark-5: hsl(210, 28%, 30%);
-
-  /* Background colors */
-  --ui-color-surface-1: light-dark(var(--color-light-1), var(--color-dark-1));
-  --ui-color-surface-2: light-dark(var(--color-light-2), var(--color-dark-2));
-  --ui-color-surface-3: light-dark(var(--color-light-3), var(--color-dark-3));
-
-  /* Foreground colors */
-  --ui-color-foreground-1: light-dark(var(--color-dark-1), var(--color-light-1));
-  --ui-color-foreground-2: light-dark(var(--color-dark-3), var(--color-light-3));
-  --ui-color-foreground-3: light-dark(var(--color-dark-5), var(--color-light-5));
-
-  /* Border colors */
-  --ui-color-line-1: light-dark(var(--color-light-3), var(--color-dark-3));
-  --ui-color-line-2: light-dark(var(--color-light-4), var(--color-dark-4));
-  --ui-color-line-3: light-dark(var(--color-light-5), var(--color-dark-5));
-
-  /* State colors */
-  --ui-color-destructive: hsl(351, 51%, 52%);
-  --ui-color-destructive-subtle: hsl(351, 51%, 60%);
-  --ui-color-destructive-strong: hsl(351, 51%, 40%);
-}
-
-.dark {
-  /* Colors */
-  --background: hsl(0, 0%, 5%);
-  --foreground: hsl(0, 0%, 98%);
-  --muted-foreground: hsl(0, 0%, 75%);
-  --surface-1: hsl(0, 0%, 7%);
-  --surface-2: hsl(0, 0%, 10%);
-  --surface-3: hsl(0, 0%, 16%);
-  --border: hsl(0, 0%, 23%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-}
-
 @layer base {
-  * {
-    @apply border-border outline-ring/50 relative;
+  :root {
+    /* Brand colors */
+    --ui-color-basil: hsl(151, 51%, 50%);
+    --ui-color-basil-foreground: var(--ui-color-dark-0);
+    --ui-color-basil-subtle: hsl(151, 51%, 60%);
+    --ui-color-basil-strong: hsl(151, 51%, 40%);
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
     min-width: 300px;
   }
 
   p a {
-    @apply text-primary;
+    @apply var(--ui-color-basil);
   }
 
   p a:hover {
-    @apply text-primary/80;
-  }
-
-  [hidden] {
-    @apply hidden;
+    @apply var(--ui-color-basil-strong);
   }
 }

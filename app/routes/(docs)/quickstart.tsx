@@ -18,7 +18,7 @@ export default function Page() {
         npx -y shadcn@latest add https://pizzajs.dev/basil-ui/r/button.json
       </code>
 
-      <p>You will also need to add the following CSS to your project (still WIP):</p>
+      <p>You will also need to add the following CSS to your project:</p>
       <CodeBlock code={stylesCss} lang="css" />
     </article>
   )

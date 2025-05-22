@@ -2,25 +2,25 @@
 
 import { cn } from '@/lib/utils'
 import { Circle } from 'lucide-react'
-import * as React from 'react'
+import { useId } from 'react'
 
 export interface RadioProps extends React.ComponentPropsWithoutRef<'input'> {
   /**
    * Optional label for the radio
    */
-  label?: string
+  label?: React.ReactNode
   /**
    * Optional description text
    */
-  description?: string
+  description?: React.ReactNode
   /**
    * Optional error message
    */
-  error?: string
+  error?: React.ReactNode
 }
 
 export function Radio({ className, label, description, error, disabled, ...props }: RadioProps) {
-  const id = React.useId()
+  const id = useId()
 
   return (
     <div className="flex items-start gap-2">
@@ -32,7 +32,7 @@ export function Radio({ className, label, description, error, disabled, ...props
             'peer h-4 w-4 shrink-0 rounded-full border border-input ring-offset-background appearance-none',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
             'disabled:cursor-not-allowed disabled:opacity-50',
-            'data-[state=checked]:border-primary',
+            'data-[state=checked]:border-primary-subtle bg-background',
             className,
           )}
           disabled={disabled}
@@ -40,7 +40,7 @@ export function Radio({ className, label, description, error, disabled, ...props
         />
         <Circle
           className={cn(
-            'absolute left-0 top-0 h-4 w-4 scale-0 text-primary fill-primary stroke-none opacity-0 transition-all',
+            'absolute p-px left-0 top-0 h-4 w-4 scale-0 fill-primary-subtle stroke-none opacity-0 transition-all',
             'peer-checked:scale-75 peer-checked:opacity-100',
             'peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
           )}

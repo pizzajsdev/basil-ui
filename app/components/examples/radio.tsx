@@ -9,7 +9,7 @@ export default function RadioExample() {
       description="Radio and Radio Group"
       examplePath="app/components/examples/radio.tsx"
     >
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 flex-1 p-2">
         {/* Basic radio */}
         <Radio name="standalone" label="Standalone radio" value="standalone" />
 

@@ -2,6 +2,7 @@ import { GithubIcon } from '@/registry/basil-ui/ui/social-icons'
 import { ThemeToggle } from '@/registry/basil-ui/ui/theme-toggle'
 import { Link } from 'react-router'
 import { Footer } from './footer'
+import { Logo } from './logo'
 
 export function PageLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,7 +10,12 @@ export function PageLayout({ children }: { children: React.ReactNode }) {
       <header className="flex justify-between items-center border-b border-border p-3">
         <h1 className="contents">
           <Link to="/" className="flex flex-row items-center justify-center gap-2">
-            <img src={'/basil-ui/logo.png'} alt="Basil UI" width={64} height={64} className="block w-[28px] h-[28px]" />
+            <Logo
+              width={64}
+              height={64}
+              className="block w-[28px] h-[28px]"
+              pathClassName="fill-none stroke-[30px] stroke-current"
+            />
             <span className="text-xl font-bold text-foreground">Basil UI</span>
           </Link>
         </h1>

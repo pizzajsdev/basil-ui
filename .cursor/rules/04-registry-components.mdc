@@ -18,6 +18,7 @@ Registry components are organized in three main locations:
 - Pass the rest of `...props` to the most important element.
 - Use `React.ComponentPropsWithRef` over `React.ComponentPropsWithoutRef`.
 - For composable parts, prefer `React.ReactNode` over `string`, e.g. labels.
+- Use the color tokens defined in [basil.css](mdc:app/basil.css) `--color-*` vars, e.g. "--color-primary" will be bg-primary, text-primary, etc.
 
 ## Adding a New Component
 
